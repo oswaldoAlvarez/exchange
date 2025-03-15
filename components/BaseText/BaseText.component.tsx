@@ -1,6 +1,6 @@
 interface IBaseText {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
 export const BaseText = ({ children, className }: IBaseText) => {
