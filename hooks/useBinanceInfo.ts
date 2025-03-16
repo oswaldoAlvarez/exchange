@@ -11,7 +11,7 @@ const fetchBinancePrices = async (): Promise<Ticker[]> => {
   });
 
   if (!res.ok) {
-    throw new Error("Error al obtener datos de Binance");
+    throw new Error("Error to obtain binance data");
   }
 
   return res.json();
