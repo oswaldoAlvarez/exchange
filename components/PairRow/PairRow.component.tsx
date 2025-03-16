@@ -11,9 +11,10 @@ interface IPairRow {
 }
 
 export const PairRow = ({ symbol, price }: IPairRow) => {
+  const setSelectedPair = usePairStore((state) => state.setSelectedPair);
+
   const priceFormatted = formattedAmount(price);
 
-  const setSelectedPair = usePairStore((state) => state.setSelectedPair);
 
   const handleClick = () => {
     setSelectedPair({ symbol, price });

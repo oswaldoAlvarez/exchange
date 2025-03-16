@@ -6,13 +6,14 @@ export interface Pair {
 }
 
 interface PairStore {
-  selectedPair: Pair | null;
+  selectedPair: Pair;
   setSelectedPair: (pair: Pair) => void;
   clearSelectedPair: () => void;
 }
 
 export const usePairStore = create<PairStore>((set) => ({
-  selectedPair: null,
+  selectedPair: { symbol: "", price: 0 },
   setSelectedPair: (pair: Pair) => set({ selectedPair: pair }),
-  clearSelectedPair: () => set({ selectedPair: null }),
+  clearSelectedPair: () =>
+    set({ selectedPair: { symbol: "", price: 0 } }),
 }));

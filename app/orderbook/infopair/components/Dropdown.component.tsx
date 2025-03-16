@@ -6,10 +6,13 @@ interface IDropdown {
 }
 
 export const Dropdown = ({ items }: IDropdown) => {
+  const selectedPair = usePairStore((state) => state.selectedPair);
   const setSelectedPair = usePairStore((state) => state.setSelectedPair);
 
+  const { symbol } = selectedPair;
+
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string>(symbol);
 
   return (
     <div className="relative inline-block text-left mb-5">
@@ -18,7 +21,7 @@ export const Dropdown = ({ items }: IDropdown) => {
         type="button"
         className="inline-flex justify-between w-56 rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
       >
-        {selected ? selected : "Selecciona una opción"}
+        {selected ? selected : "Select a option"}
         <svg
           className="-mr-1 ml-2 h-5 w-5"
           xmlns="http://www.w3.org/2000/svg"

@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 
-export interface BinanceTicker {
+export interface Ticker {
   symbol: string;
   price: string;
 }
 
-const fetchBinancePrices = async (): Promise<BinanceTicker[]> => {
+const fetchBinancePrices = async (): Promise<Ticker[]> => {
   const res = await fetch("https://api.binance.com/api/v3/ticker/price", {
     next: { revalidate: 60 },
   });
@@ -18,7 +18,7 @@ const fetchBinancePrices = async (): Promise<BinanceTicker[]> => {
 };
 
 export const useBinanceInfo = () => {
-  const { data, isLoading, isError, error } = useQuery<BinanceTicker[], Error>({
+  const { data, isLoading, isError, error } = useQuery<Ticker[], Error>({
     queryKey: ["binancePrices"],
     queryFn: fetchBinancePrices,
   });
