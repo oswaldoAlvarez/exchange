@@ -32,10 +32,6 @@ export const connectKlineSocket = (symbol: string, interval: string = "1m") => {
       klineListeners.forEach((listener) => listener(kline));
     }
   };
-
-  klineSocket.onerror = (error) => {
-    console.error("Kline WebSocket error:", error);
-  };
 };
 
 export const subscribeKline = (callback: (data: KlineData) => void) => {
