@@ -12,4 +12,4 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-You can see the project in https://exchange-oswaldo.vercel.app/orderbook
+You can see the project in https://exchange-oswaldo.vercel.app/orderbook (You can view the responsive version of this page with a device larger than 640px)
